@@ -1,20 +1,23 @@
 import { motion } from 'motion/react';
 import {Star, Play, Quote, Users, TrendingUp, Award, Check, Video, Phone, ArrowRight} from 'lucide-react';
 import { useState } from 'react';
+import rebeccaVideo from '../assets/videos/Rebecca.mp4';
+import rebeccaImage from '../assets/images/Rebecca.jpg';
+
 
 export function Testimonials() {
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter] = useState('all');
 
   const videoTestimonials = [
     {
       id: 1,
-      name: 'Janelle Mcalister',
-      role: 'CEO, Tech Innovations',
-      thumbnail: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80',
-      videoUrl: '#',
+      name: 'Rebecca Bertoldi',
+      role: 'Digital Marketing Consultant',
+      thumbnail: rebeccaImage,
+      videoUrl: rebeccaVideo,
       rating: 5,
-      category: 'chatbot',
+      category: 'va-support',
       preview: 'Amazing AI chatbot implementation that transformed our customer service...',
     },
     {
@@ -26,26 +29,6 @@ export function Testimonials() {
       rating: 5,
       category: 'va-support',
       preview: 'The VA support team is absolutely phenomenal. Highly recommended...',
-    },
-    {
-      id: 3,
-      name: 'Sarah Williams',
-      role: 'Marketing Director',
-      thumbnail: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80',
-      videoUrl: '#',
-      rating: 5,
-      category: 'ghl',
-      preview: 'GHL setup was seamless and the results have been outstanding...',
-    },
-    {
-      id: 4,
-      name: 'Terherah Harris',
-      role: 'Business Owner',
-      thumbnail: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=800&q=80',
-      videoUrl: '#',
-      rating: 5,
-      category: 'chatbot',
-      preview: 'Professional team that delivers on their promises every time...',
     },
   ];
 
@@ -113,15 +96,9 @@ export function Testimonials() {
     { icon: Award, value: '200+', label: 'Projects Completed', gradient: 'from-blue-500 to-purple-500' },
   ];
 
-  const filters = [
-    { id: 'all', label: 'All Reviews' },
-    { id: 'chatbot', label: 'AI Chatbot' },
-    { id: 'va-support', label: 'VA Support' },
-    { id: 'ghl', label: 'GHL Setup' },
-  ];
 
-  const filteredVideos = activeFilter === 'all' 
-    ? videoTestimonials 
+  const filteredVideos = activeFilter === 'all'
+    ? videoTestimonials
     : videoTestimonials.filter(v => v.category === activeFilter);
 
   return (
@@ -209,25 +186,6 @@ export function Testimonials() {
               Watch our clients share their success stories and experiences
             </p>
           </motion.div>
-
-          {/* Filters */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {filters.map((filter) => (
-              <motion.button
-                key={filter.id}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all ${
-                  activeFilter === filter.id
-                    ? 'bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-white'
-                    : 'bg-slate-800/50 border border-white/10 text-gray-400 hover:text-white hover:border-white/20'
-                }`}
-              >
-                {filter.label}
-              </motion.button>
-            ))}
-          </div>
 
           {/* Video Grid */}
           <div className="grid md:grid-cols-2 gap-8">
@@ -471,15 +429,16 @@ export function Testimonials() {
             >
               ×
             </button>
-            
-            <div className="aspect-video bg-slate-950 flex items-center justify-center">
-              <div className="text-center">
-                <Play className="w-20 h-20 text-blue-400 mx-auto mb-4" />
-                <p className="text-gray-400">Video player would load here</p>
-                <p className="text-gray-500 text-sm mt-2">Demo mode - actual video integration required</p>
-              </div>
+
+            <div className="aspect-video bg-black">
+              <video
+                  src={videoTestimonials.find(v => v.id === selectedVideo)?.videoUrl}
+                  controls
+                  autoPlay
+                  className="w-full h-full object-contain"
+              />
             </div>
-            
+
             <div className="p-6">
               {videoTestimonials.find(v => v.id === selectedVideo) && (
                 <>
