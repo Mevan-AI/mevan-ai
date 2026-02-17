@@ -46,7 +46,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Contact Us
               </span>
             </h1>
@@ -67,7 +67,7 @@ export function Contact() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Get In Touch
               </span>
             </h2>
@@ -84,8 +84,8 @@ export function Contact() {
               viewport={{ once: true }}
             >
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
-                <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-4 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-2xl"></div>
+                <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-4 backdrop-blur-sm">
                   {/* GHL Inline Form */}
                   <iframe
                     src="https://link.mevan.ai/widget/form/NbHGv0ldFCF6A9hLcCJG"
@@ -126,10 +126,10 @@ export function Contact() {
                   whileHover={{ x: 10 }}
                   className="relative group"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-r ${info.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity`}></div>
-                  <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                  <div className={`absolute inset-0 bg-linear-to-r ${info.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity`}></div>
+                  <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                     <div className="flex items-start gap-4">
-                      <div className={`p-3 bg-gradient-to-r ${info.gradient} rounded-xl flex-shrink-0`}>
+                      <div className={`p-3 bg-linear-to-r ${info.gradient} rounded-xl shrink-0`}>
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -146,8 +146,8 @@ export function Contact() {
                 whileHover={{ scale: 1.02 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
-                <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl"></div>
+                <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                   <h3 className="text-white font-semibold mb-4">Follow Us</h3>
                   <div className="flex gap-4">
                     {socialLinks.map((social, index) => (
@@ -155,7 +155,7 @@ export function Contact() {
                         key={index}
                         whileHover={{ scale: 1.1, rotate: 5 }}
                         whileTap={{ scale: 0.9 }}
-                        className="p-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all"
+                        className="p-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-xl hover:from-purple-500 hover:to-pink-500 transition-all"
                       >
                         <social.icon className="w-5 h-5 text-white" />
                       </motion.button>

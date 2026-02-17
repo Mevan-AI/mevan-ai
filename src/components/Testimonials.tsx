@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Star, Play, Quote, Users, TrendingUp, Award, Check, Video } from 'lucide-react';
+import {Star, Play, Quote, Users, TrendingUp, Award, Check, Video, Phone, ArrowRight} from 'lucide-react';
 import { useState } from 'react';
 
 export function Testimonials() {
@@ -143,14 +143,14 @@ export function Testimonials() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 rounded-full mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-linear-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 border border-blue-500/20 rounded-full mb-8"
             >
               <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
               <span className="text-sm text-gray-300">Trusted by 150+ Happy Clients</span>
             </motion.div>
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Client Success Stories
               </span>
             </h1>
@@ -175,12 +175,12 @@ export function Testimonials() {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="relative group"
               >
-                <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity`}></div>
-                <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
-                  <div className={`w-12 h-12 mx-auto mb-4 bg-gradient-to-r ${stat.gradient} rounded-xl flex items-center justify-center`}>
+                <div className={`absolute inset-0 bg-linear-to-r ${stat.gradient} opacity-0 group-hover:opacity-20 rounded-2xl blur-xl transition-opacity`}></div>
+                <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-8 text-center backdrop-blur-sm">
+                  <div className={`w-12 h-12 mx-auto mb-4 bg-linear-to-r ${stat.gradient} rounded-xl flex items-center justify-center`}>
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
-                  <div className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                  <div className={`text-4xl font-bold bg-linear-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                     {stat.value}
                   </div>
                   <div className="text-gray-400">{stat.label}</div>
@@ -201,7 +201,7 @@ export function Testimonials() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Video Testimonials
               </span>
             </h2>
@@ -220,7 +220,7 @@ export function Testimonials() {
                 onClick={() => setActiveFilter(filter.id)}
                 className={`px-6 py-3 rounded-full font-medium transition-all ${
                   activeFilter === filter.id
-                    ? 'bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white'
+                    ? 'bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 text-white'
                     : 'bg-slate-800/50 border border-white/10 text-gray-400 hover:text-white hover:border-white/20'
                 }`}
               >
@@ -241,8 +241,8 @@ export function Testimonials() {
                 className="relative group cursor-pointer"
                 onClick={() => setSelectedVideo(video.id)}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl overflow-hidden backdrop-blur-sm">
                   {/* Video Thumbnail */}
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -250,7 +250,7 @@ export function Testimonials() {
                       alt={video.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-slate-900 via-slate-900/50 to-transparent"></div>
                     
                     {/* Play Button */}
                     <motion.div
@@ -258,15 +258,15 @@ export function Testimonials() {
                       className="absolute inset-0 flex items-center justify-center"
                     >
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-75 animate-pulse"></div>
-                        <div className="relative w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                        <div className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-full blur-xl opacity-75 animate-pulse"></div>
+                        <div className="relative w-20 h-20 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                           <Play className="w-8 h-8 text-white ml-1" fill="white" />
                         </div>
                       </div>
                     </motion.div>
 
                     {/* Video Badge */}
-                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center gap-2">
+                    <div className="absolute top-4 right-4 px-3 py-1.5 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center gap-2">
                       <Video className="w-4 h-4 text-white" />
                       <span className="text-white text-sm font-medium">Video</span>
                     </div>
@@ -313,7 +313,7 @@ export function Testimonials() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Written Reviews
               </span>
             </h2>
@@ -333,11 +333,11 @@ export function Testimonials() {
                 whileHover={{ y: -8 }}
                 className="relative group"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm h-full flex flex-col">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500/20 to-purple-500/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm h-full flex flex-col">
                   {/* Quote Icon */}
                   <div className="mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-linear-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center">
                       <Quote className="w-6 h-6 text-white" />
                     </div>
                   </div>
@@ -350,7 +350,7 @@ export function Testimonials() {
                   </div>
 
                   {/* Review Text */}
-                  <p className="text-gray-300 leading-relaxed mb-6 flex-grow">
+                  <p className="text-gray-300 leading-relaxed mb-6 grow">
                     "{testimonial.text}"
                   </p>
 
@@ -367,7 +367,7 @@ export function Testimonials() {
                       <div className="flex items-center gap-2">
                         <h4 className="text-white font-semibold">{testimonial.name}</h4>
                         {testimonial.verified && (
-                          <div className="w-5 h-5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                          <div className="w-5 h-5 bg-linear-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                             <Check className="w-3 h-3 text-white" />
                           </div>
                         )}
@@ -387,8 +387,8 @@ export function Testimonials() {
       <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-12 backdrop-blur-sm">
+            <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
+            <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-12 backdrop-blur-sm">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -396,7 +396,7 @@ export function Testimonials() {
                 className="text-center"
               >
                 <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                  <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Join Our Growing Family of Satisfied Clients
                   </span>
                 </h2>
@@ -413,9 +413,9 @@ export function Testimonials() {
                     <motion.div
                       key={index}
                       whileHover={{ scale: 1.05 }}
-                      className="bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-xl p-6"
+                      className="bg-linear-to-r from-slate-800/50 to-slate-700/50 rounded-xl p-6"
                     >
-                      <div className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                      <div className="text-3xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
                         {item.value}
                       </div>
                       <div className="text-gray-400">{item.label}</div>
@@ -423,16 +423,26 @@ export function Testimonials() {
                   ))}
                 </div>
 
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="relative group"
+                <motion.a
+                    href="https://link.mevan.ai/widget/bookings/mevan-ai"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="inline-block group relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold">
+                  <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
+                    <Phone className="w-5 h-5" />
                     Start Your Success Story
+                    <motion.div
+                        animate={{ x: [0, 5, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </motion.div>
                   </div>
-                </motion.button>
+                </motion.a>
               </motion.div>
             </div>
           </div>
@@ -453,7 +463,7 @@ export function Testimonials() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative max-w-4xl w-full bg-gradient-to-br from-slate-900 to-slate-800 border border-white/10 rounded-3xl overflow-hidden"
+            className="relative max-w-4xl w-full bg-linear-to-br from-slate-900 to-slate-800 border border-white/10 rounded-3xl overflow-hidden"
           >
             <button
               onClick={() => setSelectedVideo(null)}

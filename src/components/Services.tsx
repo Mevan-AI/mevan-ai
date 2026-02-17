@@ -79,7 +79,7 @@ export function Services() {
     setActiveForm(null);
   };
 
-  // Close popup when clicking escape key
+  // Close popup when clicking an escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -114,7 +114,7 @@ export function Services() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Our Services
               </span>
             </h1>
@@ -135,7 +135,7 @@ export function Services() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 What We Offer?
               </span>
             </h2>
@@ -155,13 +155,13 @@ export function Services() {
                 className="relative"
               >
                 <div className="relative">
-                  <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-10 rounded-3xl blur-3xl`}></div>
-                  <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-8 lg:p-12 backdrop-blur-sm">
+                  <div className={`absolute inset-0 bg-linear-to-r ${service.gradient} opacity-10 rounded-3xl blur-3xl`}></div>
+                  <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-8 lg:p-12 backdrop-blur-sm">
                     <div className="grid lg:grid-cols-2 gap-8 items-center">
                       {/* Content */}
                       <div>
                         <div className="flex items-center gap-4 mb-6">
-                          <div className={`p-4 bg-gradient-to-r ${service.gradient} rounded-2xl`}>
+                          <div className={`p-4 bg-linear-to-r ${service.gradient} rounded-2xl`}>
                             <service.icon className="w-8 h-8 text-white" />
                           </div>
                           <h3 className="text-3xl font-bold text-white">{service.title}</h3>
@@ -176,7 +176,7 @@ export function Services() {
                               whileHover={{ x: 10 }}
                               className="flex items-center gap-3"
                             >
-                              <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.gradient}`}></div>
+                              <div className={`w-2 h-2 rounded-full bg-linear-to-r ${service.gradient}`}></div>
                               <span className="text-gray-300">{feature}</span>
                             </motion.div>
                           ))}
@@ -189,8 +189,8 @@ export function Services() {
                           onClick={() => openGHLForm(service.title)}
                           className="group relative"
                         >
-                          <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity`}></div>
-                          <div className={`relative bg-gradient-to-r ${service.gradient} px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2`}>
+                          <div className={`absolute inset-0 bg-linear-to-r ${service.gradient} rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity`}></div>
+                          <div className={`relative bg-linear-to-r ${service.gradient} px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2`}>
                             Request Build
                             <motion.div
                               animate={{ x: [0, 5, 0] }}
@@ -204,12 +204,12 @@ export function Services() {
 
                       {/* Visual Element */}
                       <div className="relative">
-                        <div className={`absolute inset-0 bg-gradient-to-r ${service.gradient} opacity-20 rounded-3xl blur-3xl`}></div>
-                        <div className="relative bg-gradient-to-br from-slate-900/60 to-slate-800/60 border border-white/10 rounded-3xl p-12 backdrop-blur-sm flex items-center justify-center min-h-[300px]">
+                        <div className={`absolute inset-0 bg-linear-to-r ${service.gradient} opacity-20 rounded-3xl blur-3xl`}></div>
+                        <div className="relative bg-linear-to-br from-slate-900/60 to-slate-800/60 border border-white/10 rounded-3xl p-12 backdrop-blur-sm flex items-center justify-center min-h-75">
                           <motion.div
                             whileHover={{ scale: 1.1, rotate: 360 }}
                             transition={{ duration: 0.8 }}
-                            className={`p-12 bg-gradient-to-r ${service.gradient} rounded-3xl shadow-2xl`}
+                            className={`p-12 bg-linear-to-r ${service.gradient} rounded-3xl shadow-2xl`}
                           >
                             <service.icon className="w-24 h-24 text-white" />
                           </motion.div>
@@ -233,21 +233,21 @@ export function Services() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
-            <div className="relative bg-gradient-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-12 lg:p-16 backdrop-blur-sm text-center">
+            <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl blur-3xl"></div>
+            <div className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-3xl p-12 lg:p-16 backdrop-blur-sm text-center">
               <motion.div
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 className="inline-block mb-6"
               >
-                <div className="w-20 h-20 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
+                <div className="w-20 h-20 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto">
                   <Calendar className="w-10 h-10 text-white" />
                 </div>
               </motion.div>
               
               <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                   Ready to Transform Your Business?
                 </span>
               </h2>
@@ -257,17 +257,17 @@ export function Services() {
               </p>
               
               <motion.a
-                href="https://calendly.com/mevan-ai"
+                href="https://link.mevan.ai/widget/bookings/mevan-ai"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 className="inline-block group relative"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
+                <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
                   <Phone className="w-5 h-5" />
-                  Schedule a Call
+                  Schedule An Appointment
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
