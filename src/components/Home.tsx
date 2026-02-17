@@ -474,14 +474,8 @@ export function Home({onNavigate}: HomeProps) {
                                                 className="relative bg-linear-to-br from-slate-800/50 to-slate-700/50 border border-white/5 rounded-xl p-6 text-center">
                                                 <div>
                                                     <item.icon
-                                                        className={`w-8 h-8 mx-auto mb-3 bg-linear-to-r ${item.color} bg-clip-text`}
-                                                        style={{
-                                                            color: 'transparent',
-                                                            WebkitTextFillColor: 'transparent',
-                                                            WebkitBackgroundClip: 'text'
-                                                        }}/>
-                                                    <item.icon
-                                                        className={`w-8 h-8 mx-auto mb-3 absolute inset-0 text-blue-400`}/>
+                                                        className={`w-8 h-8 mx-auto mb-5 bg-linear-to-r text-blue-400 bg-clip-text`}
+                                                        />
                                                 </div>
                                                 <p className="text-sm text-gray-300 font-medium">{item.label}</p>
                                             </div>
@@ -872,19 +866,21 @@ export function Home({onNavigate}: HomeProps) {
                                 href="https://link.mevan.ai/widget/bookings/mevan-ai"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                whileHover={{ scale: 1.05, y: -2 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{scale: 1.05, y: -2}}
+                                whileTap={{scale: 0.95}}
                                 className="inline-block group relative"
                             >
-                                <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                                <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
-                                    <Phone className="w-5 h-5" />
+                                <div
+                                    className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                                <div
+                                    className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
+                                    <Phone className="w-5 h-5"/>
                                     Schedule An Appointment
                                     <motion.div
-                                        animate={{ x: [0, 5, 0] }}
-                                        transition={{ duration: 1.5, repeat: Infinity }}
+                                        animate={{x: [0, 5, 0]}}
+                                        transition={{duration: 1.5, repeat: Infinity}}
                                     >
-                                        <ArrowRight className="w-5 h-5" />
+                                        <ArrowRight className="w-5 h-5"/>
                                     </motion.div>
                                 </div>
                             </motion.a>

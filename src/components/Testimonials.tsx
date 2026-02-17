@@ -429,7 +429,7 @@ export function Testimonials() {
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05, y: -2 }}
                     whileTap={{ scale: 0.95 }}
-                    className="inline-block group relative"
+                    className="inline-block group relative pt-4"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
                   <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
