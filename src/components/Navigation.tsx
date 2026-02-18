@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
 import {motion, AnimatePresence} from 'motion/react';
-import {Menu, X, Sparkles, Calendar} from 'lucide-react';
+import {Menu, X, Calendar} from 'lucide-react';
+import mevanLogo from '../assets/images/Logo.png';
 
 type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
@@ -33,7 +34,7 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
         <motion.nav
             initial={{y: -100}}
             animate={{y: 0}}
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            className={`fixed top-2 left-0 right-0 z-50 transition-all duration-300 ${
                 isScrolled
                     ? 'bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-2xl'
                     : 'bg-transparent'
@@ -43,22 +44,17 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                 <div className="flex items-center justify-between h-20">
                     {/* Logo */}
                     <motion.div
-                        whileHover={{scale: 1.05}}
+                        whileHover={{ scale: 1.05 }}
                         className="flex items-center gap-2 cursor-pointer"
                         onClick={() => onNavigate('home')}
                     >
-                        <div className="relative">
-                            <div
-                                className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-lg blur-lg opacity-50"></div>
-                            <div className="relative bg-linear-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
-                                <Sparkles className="w-6 h-6 text-white"/>
-                            </div>
-                        </div>
-                        <span
-                            className="text-2xl font-bold bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Mevan AI
-            </span>
+                        <img
+                            src={mevanLogo}
+                            alt="Mevan AI Logo"
+                            className="h-24 w-auto object-contain"
+                        />
                     </motion.div>
+
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
@@ -91,8 +87,8 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                             whileTap={{ scale: 0.95 }}
                             className="relative group"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-2.5 rounded-lg text-white font-medium flex items-center gap-2">
+                            <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-2.5 rounded-lg text-white font-medium flex items-center gap-2">
                                 <Calendar className="w-4 h-4" />
                                 Schedule a Call
                             </div>
