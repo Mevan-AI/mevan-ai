@@ -135,15 +135,15 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                                     {item.label}
                                 </button>
                             ))}
-                            <button
-                                onClick={() => {
-                                    onNavigate('contact');
-                                    setIsMobileMenuOpen(false);
-                                }}
-                                className="w-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-3 rounded-lg text-white font-medium"
+                            <a
+                                href="https://link.mevan.ai/widget/bookings/mevan-ai"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block w-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-3 rounded-lg text-white font-medium text-center"
                             >
                                 Schedule A Call
-                            </button>
+                            </a>
                         </div>
                     </motion.div>
                 )}
