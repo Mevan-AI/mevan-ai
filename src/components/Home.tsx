@@ -841,7 +841,7 @@ export function Home({onNavigate}: HomeProps) {
                             </p>
 
                             {/* Stats Grid */}
-                            <div className="grid grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto">
                                 {[
                                     {icon: Rocket, label: 'Fast Setup'},
                                     {icon: Shield, label: 'Secure'},
@@ -854,9 +854,9 @@ export function Home({onNavigate}: HomeProps) {
                                         viewport={{once: true}}
                                         transition={{delay: index * 0.1}}
                                         whileHover={{scale: 1.05}}
-                                        className="bg-slate-800/50 rounded-xl p-4 border border-white/5"
+                                        className="bg-slate-800/50 rounded-xl p-4 border border-white/5 text-center"
                                     >
-                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400"/>
+                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400" />
                                         <p className="text-gray-300 text-sm">{item.label}</p>
                                     </motion.div>
                                 ))}
