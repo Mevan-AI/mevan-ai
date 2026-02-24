@@ -1,8 +1,8 @@
-import { motion } from 'motion/react';
-import { useEffect, useState, useMemo } from 'react';
+import {motion} from 'motion/react';
+import {useEffect, useState, useMemo} from 'react';
 
 export function AnimatedBackground() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
     const [isMobile, setIsMobile] = useState(false);
     const [isLowPerfDevice, setIsLowPerfDevice] = useState(false);
 
@@ -33,11 +33,11 @@ export function AnimatedBackground() {
         const handleMouseMove = (e: MouseEvent) => {
             // Throttle mouse updates for better performance
             requestAnimationFrame(() => {
-                setMousePosition({ x: e.clientX, y: e.clientY });
+                setMousePosition({x: e.clientX, y: e.clientY});
             });
         };
 
-        window.addEventListener('mousemove', handleMouseMove, { passive: true });
+        window.addEventListener('mousemove', handleMouseMove, {passive: true});
         return () => window.removeEventListener('mousemove', handleMouseMove);
     }, [isMobile]);
 
@@ -57,6 +57,7 @@ export function AnimatedBackground() {
     if (isMobile) {
         return (
             <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+                {/* Static gradient orbs - no animations, reduced blur */}
                 <div
                     className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-500/15 rounded-full blur-2xl"
                 />
@@ -64,13 +65,15 @@ export function AnimatedBackground() {
                     className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-purple-500/15 rounded-full blur-2xl"
                 />
                 {/* Simplified grid pattern */}
-                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-size-[100px_100px]" />
+                <div
+                    className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.015)_1px,transparent_1px)] bg-size-[100px_100px]"/>
             </div>
         );
     }
 
     return (
         <div className="fixed inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+            {/* The mouse-following Gradient Orb - Only on desktop */}
             {!isLowPerfDevice && (
                 <motion.div
                     className="absolute w-125 h-125 rounded-full opacity-30 blur-3xl will-change-transform"
@@ -130,8 +133,11 @@ export function AnimatedBackground() {
                 }}
             />
 
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]" />
+            {/* Grid Pattern */}
+            <div
+                className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[100px_100px] mask-[radial-gradient(ellipse_80%_50%_at_50%_50%,black,transparent)]"/>
 
+            {/* Floating Particles - Disabled on mobile */}
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}

@@ -1,7 +1,13 @@
 import {motion} from 'motion/react';
-import {Users, TrendingUp, Target, Sparkles, Zap, Shield, ArrowRight, Phone} from 'lucide-react';
+import {Users, TrendingUp, Target, Sparkles, Zap, Shield, ArrowRight} from 'lucide-react';
 
-export function About() {
+type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
+
+interface AboutProps {
+    onNavigate: (page: Page, serviceId?: string) => void;
+}
+
+export function About({onNavigate}: AboutProps) {
     const stats = [
         {value: '150+', label: 'Happy Clients', icon: Users},
         {value: '50K+', label: 'Support Given', icon: TrendingUp},
@@ -195,7 +201,8 @@ export function About() {
                                         index % 2 === 0 ? '' : 'lg:flex-row-reverse'
                                     }`}
                                 >
-                                    <div className={index % 2 === 0 ? 'lg:text-right lg:pr-8' : 'lg:col-start-2 lg:pl-8'}>
+                                    <div
+                                        className={index % 2 === 0 ? 'lg:text-right lg:pr-8' : 'lg:col-start-2 lg:pl-8'}>
                                         <div className="inline-block">
                                             <div
                                                 className="text-5xl font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-4">
@@ -288,19 +295,16 @@ export function About() {
                                     chatbot solutions to seamless automation and virtual assistance, we provide
                                     cutting-edge technology that drives efficiency, productivity, and growth.
                                 </p>
-                                <motion.a
-                                    href="https://link.mevan.ai/widget/bookings/mevan-ai"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{scale: 1.05, y: -2}}
+                                <motion.button
+                                    onClick={() => onNavigate('contact')}
+                                    whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
-                                    className="inline-block group relative pt-8"
+                                    className="relative group pt-8"
                                 >
                                     <div
                                         className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
                                     <div
                                         className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-8 py-4 rounded-full text-white font-semibold flex items-center gap-2">
-                                        <Phone className="w-5 h-5"/>
                                         Schedule An Appointment
                                         <motion.div
                                             animate={{x: [0, 5, 0]}}
@@ -309,7 +313,7 @@ export function About() {
                                             <ArrowRight className="w-5 h-5"/>
                                         </motion.div>
                                     </div>
-                                </motion.a>
+                                </motion.button>
                             </motion.div>
                         </div>
                     </div>

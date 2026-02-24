@@ -7,7 +7,7 @@ type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
 interface NavigationProps {
     currentPage: Page;
-    onNavigate: (page: Page) => void;
+    onNavigate: (page: Page, serviceId?: string) => void;
 }
 
 export function Navigation({currentPage, onNavigate}: NavigationProps) {
@@ -44,7 +44,7 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                 <div className="flex items-center justify-between h-22">
                     {/* Logo */}
                     <motion.div
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{scale: 1.05}}
                         className="flex items-center gap-2 cursor-pointer"
                         onClick={() => onNavigate('home')}
                     >
@@ -79,20 +79,20 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                                 )}
                             </motion.button>
                         ))}
-                        <motion.a
-                            href="https://link.mevan.ai/widget/bookings/mevan-ai"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                        <motion.button
+                            whileHover={{scale: 1.05}}
+                            whileTap={{scale: 0.95}}
+                            onClick={() => onNavigate('contact')}
                             className="relative group"
                         >
-                            <div className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-2.5 rounded-lg text-white font-medium flex items-center gap-2">
-                                <Calendar className="w-4 h-4" />
-                                Schedule a Call
+                            <div
+                                className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition-opacity"></div>
+                            <div
+                                className="relative bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-2.5 rounded-lg text-white font-medium flex items-center gap-2">
+                                <Calendar className="w-4 h-4"/>
+                                Schedule A Call
                             </div>
-                        </motion.a>
+                        </motion.button>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -136,10 +136,12 @@ export function Navigation({currentPage, onNavigate}: NavigationProps) {
                                 </button>
                             ))}
                             <a
-                                href="https://link.mevan.ai/widget/bookings/mevan-ai"
+                                onClick={() => {
+                                    onNavigate('contact');
+                                    setIsMobileMenuOpen(false);
+                                }}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={() => setIsMobileMenuOpen(false)}
                                 className="block w-full bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 px-6 py-3 rounded-lg text-white font-medium text-center"
                             >
                                 Schedule A Call

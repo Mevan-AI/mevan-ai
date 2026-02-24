@@ -23,7 +23,7 @@ import {CountUpStat} from './CountUpStat';
 type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
 interface HomeProps {
-    onNavigate: (page: Page) => void;
+    onNavigate: (page: Page, serviceId?: string) => void;
 }
 
 export function Home({onNavigate}: HomeProps) {
@@ -110,7 +110,7 @@ export function Home({onNavigate}: HomeProps) {
                         </motion.div>
 
                         <motion.h1
-                            className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight"
+                            className="text-5xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-snug"
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.3}}
@@ -156,7 +156,7 @@ export function Home({onNavigate}: HomeProps) {
                             className="flex flex-col sm:flex-row items-center justify-center gap-4"
                         >
                             <motion.a
-                                href="https://link.mevan.ai/widget/bookings/mevan-ai"
+                                onClick={() => onNavigate('contact')}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{scale: 1.05}}
@@ -273,6 +273,7 @@ export function Home({onNavigate}: HomeProps) {
                                 description: 'Optimize customer interactions with expert AI chatbot setup and seamless training.',
                                 gradient: 'from-blue-500 to-cyan-500',
                                 features: ['24/7 Support', 'Smart AI', 'Custom Training'],
+                                serviceId: 'ai-chatbot',
                             },
                             {
                                 number: '02',
@@ -281,6 +282,7 @@ export function Home({onNavigate}: HomeProps) {
                                 description: 'Reliable and skilled virtual assistants to streamline your business operations.',
                                 gradient: 'from-purple-500 to-pink-500',
                                 features: ['Expert Team', 'Flexible Hours', 'Task Management'],
+                                serviceId: 'va-support',
                             },
                             {
                                 number: '03',
@@ -289,6 +291,7 @@ export function Home({onNavigate}: HomeProps) {
                                 description: 'Comprehensive GoHighLevel (GHL) setup for automation, CRM, and marketing success.',
                                 gradient: 'from-pink-500 to-rose-500',
                                 features: ['Full Setup', 'Automation', 'Integration'],
+                                serviceId: 'ghl-setup',
                             },
                         ].map((service, index) => (
                             <motion.div
@@ -299,6 +302,7 @@ export function Home({onNavigate}: HomeProps) {
                                 transition={{delay: index * 0.1}}
                                 onHoverStart={() => setHoveredService(index)}
                                 onHoverEnd={() => setHoveredService(null)}
+                                onClick={() => onNavigate('services', service.serviceId)}
                                 className="relative group cursor-pointer"
                             >
                                 <motion.div
@@ -348,17 +352,13 @@ export function Home({onNavigate}: HomeProps) {
                                         ))}
                                     </div>
 
-                                    {/* Hover Arrow */}
-                                    <motion.div
-                                        className="mt-6 flex items-center gap-2 text-blue-400"
-                                        animate={{
-                                            x: hoveredService === index ? 10 : 0,
-                                            opacity: hoveredService === index ? 1 : 0,
-                                        }}
+                                    {/* Learn More Button - Always visible on mobile, hover on desktop */}
+                                    <div
+                                        className={`mt-6 flex items-center gap-2 text-blue-400 transition-all duration-300 md:opacity-0 md:translate-x-0 ${hoveredService === index ? 'md:opacity-100 md:translate-x-2.5' : ''}`}
                                     >
                                         <span className="text-sm font-semibold">Learn More</span>
                                         <ArrowRight className="w-4 h-4"/>
-                                    </motion.div>
+                                    </div>
                                 </motion.div>
                             </motion.div>
                         ))}
@@ -475,7 +475,7 @@ export function Home({onNavigate}: HomeProps) {
                                                 <div>
                                                     <item.icon
                                                         className={`w-8 h-8 mx-auto mb-5 bg-linear-to-r text-blue-400 bg-clip-text`}
-                                                        />
+                                                    />
                                                 </div>
                                                 <p className="text-sm text-gray-300 font-medium">{item.label}</p>
                                             </div>
@@ -856,19 +856,17 @@ export function Home({onNavigate}: HomeProps) {
                                         whileHover={{scale: 1.05}}
                                         className="bg-slate-800/50 rounded-xl p-4 border border-white/5 text-center"
                                     >
-                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400" />
+                                        <item.icon className="w-8 h-8 mx-auto mb-2 text-blue-400"/>
                                         <p className="text-gray-300 text-sm">{item.label}</p>
                                     </motion.div>
                                 ))}
                             </div>
 
-                            <motion.a
-                                href="https://link.mevan.ai/widget/bookings/mevan-ai"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                whileHover={{scale: 1.05, y: -2}}
+                            <motion.button
+                                onClick={() => onNavigate('contact')}
+                                whileHover={{scale: 1.05}}
                                 whileTap={{scale: 0.95}}
-                                className="inline-block group relative"
+                                className="relative group pt-8"
                             >
                                 <div
                                     className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
@@ -883,7 +881,7 @@ export function Home({onNavigate}: HomeProps) {
                                         <ArrowRight className="w-5 h-5"/>
                                     </motion.div>
                                 </div>
-                            </motion.a>
+                            </motion.button>
 
                             <p className="text-gray-500 text-sm mt-6">
                                 No credit card required • Free consultation • Quick response

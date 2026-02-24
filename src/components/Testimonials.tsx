@@ -6,8 +6,13 @@ import stephenVideo from '../assets/videos/Stephen.mov';
 import rebeccaImage from '../assets/images/Rebecca.jpg';
 import stephenImage from '../assets/images/Stephen.jpg';
 
+type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
-export function Testimonials() {
+interface TestimonialsProps {
+    onNavigate: (page: Page) => void;
+}
+
+export function Testimonials({onNavigate}: TestimonialsProps) {
     const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
     const [activeFilter] = useState('all');
 
@@ -407,13 +412,11 @@ export function Testimonials() {
                                     ))}
                                 </div>
 
-                                <motion.a
-                                    href="https://link.mevan.ai/widget/bookings/mevan-ai"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    whileHover={{scale: 1.05, y: -2}}
+                                <motion.button
+                                    onClick={() => onNavigate('contact')}
+                                    whileHover={{scale: 1.05}}
                                     whileTap={{scale: 0.95}}
-                                    className="inline-block group relative pt-4"
+                                    className="relative group pt-8"
                                 >
                                     <div
                                         className="absolute inset-0 bg-linear-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full blur-xl opacity-75 group-hover:opacity-100 transition-opacity"></div>
@@ -428,7 +431,7 @@ export function Testimonials() {
                                             <ArrowRight className="w-5 h-5"/>
                                         </motion.div>
                                     </div>
-                                </motion.a>
+                                </motion.button>
                             </motion.div>
                         </div>
                     </div>
