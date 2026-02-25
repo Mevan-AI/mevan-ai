@@ -10,17 +10,31 @@ import {AnimatedBackground} from './components/AnimatedBackground';
 
 type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
+const validPages: Page[] = ['home', 'about', 'services', 'contact', 'testimonials'];
+
+function getPageFromHash(): Page {
+    const hash = window.location.hash.replace('#', '').toLowerCase() as Page;
+    return validPages.includes(hash) ? hash : 'home';
+}
+
 export default function App() {
-    const [currentPage, setCurrentPage] = useState<Page>('home');
+    const [currentPage, setCurrentPage] = useState<Page>(getPageFromHash);
     const [targetService, setTargetService] = useState<string | null>(null);
 
     const handleNavigate = useCallback((page: Page, serviceId?: string) => {
         setCurrentPage(page);
+        window.location.hash = page === 'home' ? '' : page;
         if (page === 'services' && serviceId) {
             setTargetService(serviceId);
         } else {
             setTargetService(null);
         }
+    }, []);
+
+    useEffect(() => {
+        const onHashChange = () => setCurrentPage(getPageFromHash());
+        window.addEventListener('hashchange', onHashChange);
+        return () => window.removeEventListener('hashchange', onHashChange);
     }, []);
 
     useEffect(() => {
