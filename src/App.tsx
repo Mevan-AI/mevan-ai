@@ -35,8 +35,6 @@ export default function App() {
                 return <About onNavigate={handleNavigate}/>;
             case 'services':
                 return <Services onNavigate={handleNavigate} targetService={targetService}/>;
-            case 'contact':
-                return <Contact/>;
             case 'testimonials':
                 return <Testimonials onNavigate={handleNavigate}/>;
             default:
@@ -50,7 +48,10 @@ export default function App() {
             <AnimatedBackground/>
             <Navigation currentPage={currentPage} onNavigate={handleNavigate}/>
             <main className="relative z-10">
-                {renderPage()}
+                <div style={{ display: currentPage === 'contact' ? 'block' : 'none' }}>
+                    <Contact/>
+                </div>
+                {currentPage !== 'contact' && renderPage()}
             </main>
             <Footer onNavigate={handleNavigate}/>
         </div>

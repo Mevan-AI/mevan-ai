@@ -1,5 +1,6 @@
 import {motion} from 'motion/react';
-import {Mail, Phone, MapPin, Sparkles} from 'lucide-react';
+import {Mail, Phone, MapPin} from 'lucide-react';
+import mevanLogo from "../assets/images/Logo.png";
 
 type Page = 'home' | 'about' | 'services' | 'contact' | 'testimonials';
 
@@ -33,17 +34,13 @@ export function Footer({onNavigate}: FooterProps) {
                             className="flex items-center gap-2 mb-4 cursor-pointer"
                             onClick={() => onNavigate('home')}
                         >
-                            <div className="relative">
-                                <div
-                                    className="absolute inset-0 bg-linear-to-r from-blue-500 to-purple-500 rounded-lg blur-lg opacity-50"></div>
-                                <div className="relative bg-linear-to-r from-blue-500 to-purple-500 p-2 rounded-lg">
-                                    <Sparkles className="w-6 h-6 text-white"/>
-                                </div>
+                            <div className="relative ml-12">
+                                <img
+                                    src={mevanLogo}
+                                    alt="Mevan AI Logo"
+                                    className="h-24 w-auto object-contain"
+                                />
                             </div>
-                            <span
-                                className="text-2xl font-bold bg-linear-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Mevan AI
-              </span>
                         </motion.div>
                         <p className="text-gray-400 leading-relaxed mb-6">
                             Drive growth, retain customers, and scale up effortlessly with Mevan AI.

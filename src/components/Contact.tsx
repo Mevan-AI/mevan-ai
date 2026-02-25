@@ -1,18 +1,12 @@
 import {motion} from 'motion/react';
-import {Mail, Phone, MapPin, Linkedin} from 'lucide-react';
-import {useEffect} from "react";
+import {Mail, Phone, MapPin, Linkedin, Loader} from 'lucide-react';
+import {useState, useCallback} from "react";
 
 export function Contact() {
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.src = 'https://link.mevan.ai/js/form_embed.js';
-        script.type = 'text/javascript';
-        script.async = true;
-        document.body.appendChild(script);
+    const [calendarLoaded, setCalendarLoaded] = useState(false);
 
-        return () => {
-            document.body.removeChild(script);
-        };
+    const handleCalendarLoad = useCallback(() => {
+        setCalendarLoaded(true);
     }, []);
 
     const contactInfo = [
@@ -82,15 +76,25 @@ export function Contact() {
                                 className="absolute inset-0 rounded-3xl blur-2xl"></div>
                             <div
                                 className="relative backdrop-blur-sm">
+                                {!calendarLoaded && (
+                                    <div
+                                        className="flex flex-col items-center justify-center py-32 gap-4 rounded-xl bg-slate-900/60 border border-white/5">
+                                        <Loader className="w-10 h-10 text-blue-400 animate-spin"/>
+                                        <p className="text-gray-400 text-sm">Loading calendar…</p>
+                                    </div>
+                                )}
                                 <iframe
                                     src="https://link.mevan.ai/widget/booking/UBnW0xbc4XipghcblMwQ"
                                     style={{
                                         width: '100%',
-                                        height: '100%',
+                                        height: calendarLoaded ? '100%' : '0px',
                                         border: 'none',
                                         borderRadius: '12px',
                                         overflow: 'hidden',
+                                        opacity: calendarLoaded ? 1 : 0,
+                                        transition: 'opacity 0.4s ease-in-out',
                                     }}
+                                    onLoad={handleCalendarLoad}
                                     id="UBnW0xbc4XipghcblMwQ_1771868468675"
                                     title="Schedule a Meeting"
                                 />
@@ -115,7 +119,8 @@ export function Contact() {
               </span>
                         </h2>
                         <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-                            We're here to help you transform your business with AI-driven solutions. Whether you need
+                            We're here to help you transform your business with AI-driven solutions. Whether you
+                            need
                             chatbot setup, virtual assistant support, or GHL automation, our team is ready to assist
                             you. Get in touch today and let's create something amazing together!
                         </p>
@@ -178,7 +183,8 @@ export function Contact() {
                                     <div
                                         className="relative bg-linear-to-br from-slate-900/80 to-slate-800/80 border border-white/10 rounded-2xl p-6 backdrop-blur-sm">
                                         <div className="flex items-start gap-4">
-                                            <div className={`p-3 bg-linear-to-r ${info.gradient} rounded-xl shrink-0`}>
+                                            <div
+                                                className={`p-3 bg-linear-to-r ${info.gradient} rounded-xl shrink-0`}>
                                                 <info.icon className="w-6 h-6 text-white"/>
                                             </div>
                                             <div>
